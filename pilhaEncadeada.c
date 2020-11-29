@@ -7,7 +7,7 @@ typedef struct elemento{
     struct elemento *prox;
 }Elemento;
 
-Pilha criarPilha(){
+Pilha *criarPilha(){
     Pilha *pi = (Pilha *)malloc(sizeof(Pilha));
 
     if(pi != NULL){
@@ -53,5 +53,13 @@ int inserirElemento(Pilha *pi, char dado){
     *pi = aux;
 
     return 1;
+}
+
+void imprimirPilha(Pilha *pi){
+    Elemento * aux = *pi;
+    while(aux != NULL){
+        printf(" %c", aux->dado);
+        aux = aux->prox;
+    }
 }
 

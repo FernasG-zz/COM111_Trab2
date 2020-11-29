@@ -3,8 +3,9 @@
 
 typedef struct elemento * Pilha;
 
-Pilha criarPilha();
+Pilha *criarPilha();
 int liberarPilha(Pilha *pi);
 int inserirElemento(Pilha *pi, char dado);
+void imprimirPilha(Pilha *pi);
 
 #endif
