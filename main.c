@@ -1,22 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include "pilhaEncadeada.h"
-
-int inserirExpressaoPilha(Pilha *pi, char *string){
-    int tam, res;
-    tam = strlen(string);
-
-    for(int i = 0; i < tam; i++){
-        res = inserirElemento(pi, string[i]);
-
-        if(res == 0){
-            return 0;
-        }
-    }
-
-    return 1;
-}
 
 int main(void){
     int opcao, escolha, res;
@@ -34,7 +18,7 @@ int main(void){
 
         switch (opcao){
             case 1:
-                    printf("\nEscolha qual notacão deseja utilizar:\n1 - Notação Préfixa\n2 - Notação Infixa\n3 - Notação Pósfixa\n");
+                    printf("\nEscolha qual notacão deseja verificar:\n1 - Notação Préfixa\n2 - Notação Pósfixa\n");
                     printf("Opção: ");
                     scanf("%d", &escolha);
 
@@ -44,9 +28,7 @@ int main(void){
                     if(escolha == 1){
                         res = inserirExpressaoPilha(notPre, expressao);
                     }else if(escolha == 2){
-                        res = inserirExpressaoPilha(notInf, expressao);
-                    }else if(escolha == 3){
-                        res = inserirExpressaoPilha(notPos, expressao);
+                        res = verificarExpressaoPosfixa(notInf, expressao);
                     }else {
                         printf("Valor Inválido!");
                         break;
