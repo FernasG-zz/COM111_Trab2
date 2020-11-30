@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "pilhaEncadeada.h"
 
-int main(void){
+int main(int argc, char *argv[]){
     int opcao, escolha, res;
     char * expressao;
     Pilha *notPre = criarPilha(); //variavel pilha notacao prefixa
@@ -23,19 +24,10 @@ int main(void){
                     scanf("%d", &escolha);
 
                     printf("\nInsira a expressão: ");
-                    scanf(" %s", expressao);
+                    //fgets(expressao, sizeof(expressao), stdin);
+                    scanf("%s", expressao);
 
-                    if(escolha == 1){
-                        //res = inserirExpressaoPilha(notPre, expressao);
-                    }else if(escolha == 2){
-                        res = verificarExpressaoPosfixa(notInf, expressao);
-                    }else {
-                        printf("Valor Inválido!");
-                        break;
-                    }
-
-                    imprimirPilha(notPre);
-
+                    res = verificarExpressaoPosfixa(notPos, expressao);
 
                 break;
             

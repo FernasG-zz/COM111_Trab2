@@ -12,6 +12,6 @@ int consultarTopoPilha(Pilha *pi, char *dado);
 void imprimirPilha(Pilha *pi);
 
 // Função de Verificacao
-int verificarExpressaoPosfixa(Pilha *pi, char *string);
+int verificarExpressaoPosfixa(Pilha *pi, char string[]);
 
 #endif

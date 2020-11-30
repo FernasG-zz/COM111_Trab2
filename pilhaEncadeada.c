@@ -96,12 +96,13 @@ int precedenciaOperador(char valor){
     }
 }
 
-int verificarExpressaoPosfixa(Pilha *pi, char *string){
+int verificarExpressaoPosfixa(Pilha *pi, char string[]){
+    printf("entrei");
     int i, res, tam = strlen(string);
     int pos = 0;
 
     // Pilha auxiliar que vai armazenar os operandos
-    char op[100], *top, *topLoop;
+    char *op, top, topLoop;
 
     for(i = 0; i < tam; i++){
         // Variavel auxiliar para receber char atul
@@ -115,10 +116,10 @@ int verificarExpressaoPosfixa(Pilha *pi, char *string){
                 res = inserirElemento(pi, aux);
             }else {
                 if(aux == '$' || aux == '*'  || aux == '/'  || aux == '+'  || aux == '-'){
-                    res = consultarTopoPilha(pi, top);
+                    res = consultarTopoPilha(pi, &top);
                     if(precedenciaOperador(aux) <= precedenciaOperador(top)){
                         do {
-                            res = consultarTopoPilha(pi, topLoop);
+                            res = consultarTopoPilha(pi, &topLoop);
                             res = removerElemento(pi);
                             op[pos] = aux;
                             pos++;
@@ -127,7 +128,7 @@ int verificarExpressaoPosfixa(Pilha *pi, char *string){
                     }else {
                         if(aux == ')'){
                             do {
-                                res = consultarTopoPilha(pi, topLoop);
+                                res = consultarTopoPilha(pi, &topLoop);
                                 res = removerElemento(pi);
                                 op[pos] = aux;
                                 pos++;
@@ -141,7 +142,7 @@ int verificarExpressaoPosfixa(Pilha *pi, char *string){
     }
 
     do {
-        res = consultarTopoPilha(pi, topLoop);
+        res = consultarTopoPilha(pi, &topLoop);
         res = removerElemento(pi);
         op[pos] = topLoop;
         pos++;
