@@ -26,7 +26,7 @@ int main(void){
                     scanf(" %s", expressao);
 
                     if(escolha == 1){
-                        res = inserirExpressaoPilha(notPre, expressao);
+                        //res = inserirExpressaoPilha(notPre, expressao);
                     }else if(escolha == 2){
                         res = verificarExpressaoPosfixa(notInf, expressao);
                     }else {

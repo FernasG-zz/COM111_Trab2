@@ -74,12 +74,34 @@ int removerElemento(Pilha *pi){
     return 1;
 }
 
+int consultarTopoPilha(Pilha *pi, char *dado){
+    if(pi == NULL || *pi ==  NULL){
+        return 0;
+    }
+
+    *dado = (*pi)->dado;
+
+    return 1;
+}
+
+int precedenciaOperador(char valor){
+    if(valor == '$'){
+        return 3;
+    }else if(valor == '*' || valor == '/'){
+        return 2;
+    }else if(valor == '+' || valor == '-'){
+        return 1;
+    }else {
+        return 0;
+    }
+}
+
 int verificarExpressaoPosfixa(Pilha *pi, char *string){
     int i, res, tam = strlen(string);
     int pos = 0;
 
     // Pilha auxiliar que vai armazenar os operandos
-    char op[100];
+    char op[100], *top, *topLoop;
 
     for(i = 0; i < tam; i++){
         // Variavel auxiliar para receber char atul
@@ -91,8 +113,42 @@ int verificarExpressaoPosfixa(Pilha *pi, char *string){
         }else {
             if(aux = '('){
                 res = inserirElemento(pi, aux);
+            }else {
+                if(aux == '$' || aux == '*'  || aux == '/'  || aux == '+'  || aux == '-'){
+                    res = consultarTopoPilha(pi, top);
+                    if(precedenciaOperador(aux) <= precedenciaOperador(top)){
+                        do {
+                            res = consultarTopoPilha(pi, topLoop);
+                            res = removerElemento(pi);
+                            op[pos] = aux;
+                            pos++;
+                        }while(*pi != NULL && precedenciaOperador(aux) > precedenciaOperador(top));
+                        res = inserirElemento(pi, aux);
+                    }else {
+                        if(aux == ')'){
+                            do {
+                                res = consultarTopoPilha(pi, topLoop);
+                                res = removerElemento(pi);
+                                op[pos] = aux;
+                                pos++;
+                            }while(topLoop != '(');
+                        }
+                        // descartar parenteses?? 
+                    }
+                }
             }
         }
+    }
+
+    do {
+        res = consultarTopoPilha(pi, topLoop);
+        res = removerElemento(pi);
+        op[pos] = topLoop;
+        pos++;
+    }while(pi != NULL);
+
+    for(i = 0; i < pos; i++){
+        printf(" %c", op[i]);
     }
 
     return 1;

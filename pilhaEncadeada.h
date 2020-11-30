@@ -8,6 +8,7 @@ Pilha *criarPilha();
 int liberarPilha(Pilha *pi);
 int removerElemento(Pilha *pi);
 int inserirElemento(Pilha *pi, char dado);
+int consultarTopoPilha(Pilha *pi, char *dado);
 void imprimirPilha(Pilha *pi);
 
 // Função de Verificacao
