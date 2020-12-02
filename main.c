@@ -5,12 +5,46 @@
 
 int main()
 {
-    // char exp[] = "33 + 3 - 1";
+    int opcao;
     char exp[100];
-    scanf("%[^\n]s", &exp);
-    converteInfixo(exp);
-    printf("%s\n", exp);
-    printf("%d\n", resolvePosfixo(exp));
+
+    do{
+        printf("\n\nMenu de Opções: ");
+        printf("\n1 - Calcular Expressão Préfixa");
+        printf("\n2 - Calcular Expressão Infixa");
+        printf("\n3 - Calcular Expressão Pósfixa");
+        printf("\n4 - Sair");
+        printf("\nOpção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao)
+        {
+        case 1:
+            printf("\nExpressão: ");
+            scanf("%[^\n]s", &exp);
+
+            break;
+
+        case 2:
+            printf("\nExpressão: ");
+            scanf("%[^\n]s", &exp);
+            converteInfixo(exp);
+            printf("%d\n", resolvePosfixo(exp));
+
+            break;
+
+        case 3:
+            printf("\nExpressão: ");
+            scanf("%[^\n]s", &exp);
+            printf("%d\n", resolvePosfixo(exp));
+
+            break;
+        
+        default:
+            break;
+        }
+
+    }while(opcao != 4);
 
     return 0;
 }
