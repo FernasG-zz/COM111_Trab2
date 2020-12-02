@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "pilhaEncadeada.h"
-//#include "pilhaEncadeada.c"
+#include "pilhaEncadeada.c"
 
 int main()
 {
     int opcao;
     char exp[100];
 
+    printf("\nTodos os operandos e operadores dever sem separado por espaco vazio");
     do
     {
         printf("\n\nMenu de Opções: ");
@@ -50,8 +51,6 @@ int main()
         }
 
     } while (opcao < 4 || opcao > 0);
-
-    
 
     return 0;
 }
