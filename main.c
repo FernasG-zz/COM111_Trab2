@@ -44,10 +44,11 @@ int main()
             break;
 
         default:
+            return 0;
             break;
         }
 
-    } while (opcao != 4);
+    } while (opcao < 4 || opcao > 0);
 
     return 0;
 }
