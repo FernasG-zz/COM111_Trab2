@@ -8,7 +8,7 @@ int main()
     int opcao;
     char exp[100];
 
-    printf("\nTodos os operandos e operadores dever sem separado por espaco vazio");
+    printf("\n!!AVISO!!\nTodos os operandos e operadores devem\nser separados por espaco vazio\n!!AVISO!!");
     do
     {
         printf("\n\nMenu de Opções: ");
