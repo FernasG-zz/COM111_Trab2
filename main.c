@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "pilhaEncadeada.h"
-#include "pilhaEncadeada.c"
+//#include "pilhaEncadeada.c"
 
 int main()
 {
