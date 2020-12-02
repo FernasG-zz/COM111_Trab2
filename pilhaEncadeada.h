@@ -13,8 +13,8 @@ void inserirElemento(Pilha *pi, char op);
 // Funcoes para avaliacao
 int verificaOperando(char valor);
 int verificaPrecedencia(char valor);
-
 int converteInfixo(char *exp);
+int resolvePrefixo(char *exp);
 int resolvePosfixo(char *exp);
 
 #endif

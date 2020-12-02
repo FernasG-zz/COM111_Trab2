@@ -23,6 +23,7 @@ int main()
             printf("\nExpressão: ");
             setbuf(stdin, NULL);
             scanf("%[^\n]s", exp);
+            printf("Resultado: %d", resolvePrefixo(exp));
 
             break;
 
@@ -31,7 +32,7 @@ int main()
             setbuf(stdin, NULL);
             scanf("%[^\n]s", exp);
             converteInfixo(exp);
-            printf("%d\n", resolvePosfixo(exp));
+            printf("Resultado: %d\n", resolvePosfixo(exp));
 
             break;
 
@@ -39,7 +40,7 @@ int main()
             printf("\nExpressão: ");
             setbuf(stdin, NULL);
             scanf("%[^\n]s", exp);
-            printf("%d\n", resolvePosfixo(exp));
+            printf("Resultado: %d\n", resolvePosfixo(exp));
 
             break;
 
@@ -49,6 +50,8 @@ int main()
         }
 
     } while (opcao < 4 || opcao > 0);
+
+    
 
     return 0;
 }

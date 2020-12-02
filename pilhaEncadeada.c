@@ -113,6 +113,46 @@ int converteInfixo(char *exp)
     exp[++k] = '\0';
 }
 
+int resolvePrefixo(char * exp){
+    Pilha *pilha = criarPilha(strlen(exp));
+
+    char res;
+
+    for(int i = strlen(exp) - 1; i >= 0; i--){
+        
+        if (exp[i] == ' ')
+            continue;
+        else if(verificaOperando(exp[i])){
+            // nao converte para numerico aq
+            inserirElemento(pilha, exp[i]- '0');
+        }else {
+            // pega os valores do topo da pilha e os converte para numerico
+            double op1 = consultarTopo(pilha);
+            res = removerElemento(pilha);
+            double op2 = consultarTopo(pilha);
+            res = removerElemento(pilha);
+
+            switch (exp[i])
+            {
+                case '+': 
+                    inserirElemento(pilha, op1 + op2); 
+                    break; 
+                case '-': 
+                    inserirElemento(pilha, op1 - op2); 
+                    break; 
+                case '*': 
+                    inserirElemento(pilha, op1 * op2); 
+                    break; 
+                case '/': 
+                    inserirElemento(pilha, op1 / op2); 
+                    break; 
+            }
+        }
+    }
+
+    return consultarTopo(pilha);
+}
+
 int resolvePosfixo(char *exp)
 {
     Pilha *pilha = criarPilha(strlen(exp));

@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 .main
 .main.exe
 /.vscode
+=======
+main
+main.exe
+.vscode
+
+>>>>>>> 34eb3405eef686a70fddc32ecf6cb57a48248c33
